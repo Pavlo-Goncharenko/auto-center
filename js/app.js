@@ -6628,10 +6628,10 @@
                 slidesPerView: 7,
                 spaceBetween: 10,
                 autoHeight: false,
-                speed: 800,
+                speed: 1e3,
                 loop: true,
                 autoplay: {
-                    delay: 3e3,
+                    delay: 6e3,
                     disableOnInteraction: false
                 },
                 navigation: {
