@@ -661,6 +661,9 @@ body {
       -ms-flex-align: center;
           align-items: center;
   gap: 8px;
+  -webkit-transition: all 0.2s ease 0s;
+  -o-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
 }
 
 .filters-button__text {
@@ -668,6 +671,25 @@ body {
   font-size: 15px;
   line-height: 20px;
   color: #0C2434;
+  -webkit-transition: all 0.2s ease 0s;
+  -o-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
+}
+
+.filters-button__img {
+  display: block;
+}
+
+.filters-button__img-white {
+  display: none;
+}
+
+.filters-button:active {
+  background: #0C2434;
+}
+
+.filters-button:active__text {
+  color: #FFFFFF;
 }
 
 /* ======== End of SELECT VEHICLE TYPES ======== */
@@ -2047,6 +2069,22 @@ body {
 
   .vehicle-types__img:hover .car-black {
     display: block;
+  }
+
+  .filters-button:hover {
+    background: #0C2434;
+  }
+
+  .filters-button:hover .filters-button__img {
+    display: none;
+  }
+
+  .filters-button:hover .filters-button__img-white {
+    display: block;
+  }
+
+  .filters-button:hover .filters-button__text {
+    color: #FFFFFF;
   }
 
   .featured__button:hover {
