@@ -923,8 +923,16 @@ body {
   background: #0C2434;
 }
 
-.filters-button:active__text {
+.filters-button:active .filters-button__text {
   color: #FFFFFF;
+}
+
+.filters-button:active .filters-button__img {
+  display: none;
+}
+
+.filters-button:active .filters-button__img-white {
+  display: block;
 }
 
 /* ======== End of SELECT VEHICLE TYPES ======== */
@@ -1164,6 +1172,9 @@ body {
   border-radius: 50%;
   position: absolute;
   top: 45%;
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
   -webkit-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
@@ -1184,6 +1195,13 @@ body {
 .card__button-prev.swiper-button-disabled,
 .card__button-next.swiper-button-disabled {
   opacity: 0;
+}
+
+.touch .card__button-prev,
+.touch .card__button-next {
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
 }
 
 /* ======== End of SWIPER PAGINATION AND ARROWS ======== */
@@ -1223,6 +1241,25 @@ body {
 .more-btn img {
   width: 24px;
   height: 24px;
+}
+
+.more-btn:active {
+  background: #0C2434;
+}
+
+.more-btn:active span {
+  color: #fff;
+}
+
+.more-btn:active img {
+  -webkit-transform: rotate(2520deg);
+      -ms-transform: rotate(2520deg);
+          transform: rotate(2520deg);
+  -webkit-transition: -webkit-transform 9s ease 0s;
+  transition: -webkit-transform 9s ease 0s;
+  -o-transition: transform 9s ease 0s;
+  transition: transform 9s ease 0s;
+  transition: transform 9s ease 0s, -webkit-transform 9s ease 0s;
 }
 
 /* ======== End of BUTTON LOAD MORE ======== */
@@ -1265,8 +1302,8 @@ body {
   font-weight: 700;
   line-height: 110%;
   letter-spacing: -0.04em;
-  text-transform: capitalize;
   color: #0C2434;
+  max-width: 38.125rem;
 }
 
 .right-way__title span {
@@ -1295,6 +1332,7 @@ body {
 .right-way__text {
   font-size: 1.125rem;
   line-height: 150%;
+  max-width: 600px;
 }
 
 .right-way li:not(:last-child) {
@@ -2309,6 +2347,20 @@ body {
     display: none;
   }
 
+  .buying__form {
+    height: 64px;
+    padding: 8px 6px 8px 24px;
+    bottom: -32px;
+  }
+
+  .buying__search-button {
+    width: 50px;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 50px;
+            flex: 0 0 50px;
+    height: 50px;
+  }
+
   .vehicle-types__swiper-buttons {
     display: none;
   }
@@ -2376,6 +2428,7 @@ body {
   .buying__form {
     height: 50px;
     padding: 8px 6px 8px 15px;
+    bottom: -25px;
   }
 
   .buying__search-button {
@@ -2738,9 +2791,23 @@ body {
     letter-spacing: -0.25px;
   }
 
+  .card__favorites:hover {
+    cursor: pointer;
+  }
+
   .card__button-prev:hover,
   .card__button-next:hover {
     opacity: 1;
+    width: 2.125rem;
+    height: 2.125rem;
+    top: 44%;
+  }
+
+  .card:hover .card__button-prev,
+  .card:hover .card__button-next {
+    -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+            transform: scale(1);
   }
 
   .more-btn:hover {
@@ -2756,14 +2823,6 @@ body {
     -o-transition: transform 9s ease 0s;
     transition: transform 9s ease 0s;
     transition: transform 9s ease 0s, -webkit-transform 9s ease 0s;
-  }
-
-  .more-btn:active {
-    background: #0C2434;
-  }
-
-  .more-btn:active span {
-    color: #fff;
   }
 
   .feedback-button-prev:hover,

@@ -3049,6 +3049,29 @@
                 document.documentElement.classList.add(className);
             }));
         }
+        let isMobile = {
+            Android: function() {
+                return navigator.userAgent.match(/Android/i);
+            },
+            BlackBerry: function() {
+                return navigator.userAgent.match(/BlackBerry/i);
+            },
+            iOS: function() {
+                return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+            },
+            Opera: function() {
+                return navigator.userAgent.match(/Opera Mini/i);
+            },
+            Windows: function() {
+                return navigator.userAgent.match(/IEMobile/i);
+            },
+            any: function() {
+                return isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows();
+            }
+        };
+        function addTouchClass() {
+            if (isMobile.any()) document.documentElement.classList.add("touch");
+        }
         let bodyLockStatus = true;
         let bodyLockToggle = (delay = 500) => {
             if (document.documentElement.classList.contains("lock")) bodyUnlock(delay); else bodyLock(delay);
@@ -6795,8 +6818,27 @@
         }
         const da = new DynamicAdapt("max");
         da.init();
+        if (document.querySelector(".cards")) {
+            const cards = document.querySelector(".cards");
+            cards.addEventListener("click", (function(e) {
+                let targetElement = e.target;
+                if (targetElement.closest(".card__favorites")) targetElement.classList.toggle("card__favorites_selected");
+            }));
+        }
+        if (document.querySelector(".featured__switch")) {
+            const featuredSwitch = document.querySelector(".featured__switch");
+            featuredSwitch.addEventListener("click", (function(e) {
+                if (document.querySelector(".featured__button_active")) {
+                    let featuredActive = document.querySelector(".featured__button_active");
+                    featuredActive.classList.remove("featured__button_active");
+                }
+                let targetElement = e.target;
+                if (targetElement.closest(".featured__switch")) targetElement.classList.add("featured__button_active");
+            }));
+        }
         window["FLS"] = false;
         isWebp();
+        addTouchClass();
         menuInit();
     })();
 })();
