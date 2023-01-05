@@ -530,6 +530,7 @@ body {
   line-height: 110%;
   letter-spacing: -0.04em;
   color: #0C2434;
+  margin-top: 1.25rem;
 }
 
 .buying__row {
@@ -1842,6 +1843,12 @@ body {
   }
 }
 
+@media (min-width: 62.5em) {
+  .buying__title {
+    margin-top: 5vw;
+  }
+}
+
 @media (min-width: 68.75em) {
   .on-the-go__body {
     padding: 5rem;
@@ -2218,6 +2225,10 @@ body {
     -webkit-transform: rotate(45deg);
         -ms-transform: rotate(45deg);
             transform: rotate(45deg);
+  }
+
+  .buying__title {
+    text-align: center;
   }
 
   .buying__decor {
