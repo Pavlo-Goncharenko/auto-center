@@ -6621,6 +6621,26 @@
             });
         }
         function initSliders() {
+            if (document.querySelector(".card__slider")) new core(".card__slider", {
+                modules: [ Navigation, Pagination ],
+                observer: true,
+                observeParents: true,
+                slidesPerView: 1,
+                spaceBetween: 0,
+                autoHeight: false,
+                speed: 800,
+                loop: false,
+                lazy: true,
+                pagination: {
+                    el: ".card__swiper-pagination",
+                    clickable: true
+                },
+                navigation: {
+                    prevEl: ".card__button-prev",
+                    nextEl: ".card__button-next"
+                },
+                on: {}
+            });
             if (document.querySelector(".vehicle-types__slider")) new core(".vehicle-types__slider", {
                 modules: [ Navigation, Autoplay ],
                 observer: true,

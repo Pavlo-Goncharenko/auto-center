@@ -169,6 +169,12 @@ body {
 
 .header__logo {
   display: block;
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0);
+  -webkit-transition: all 0.2s ease 0s;
+  -o-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
 }
 
 .header__user-button {
@@ -1012,6 +1018,7 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   padding-bottom: 1.25rem;
+  min-width: 0;
 }
 
 .card__image {
@@ -1036,6 +1043,7 @@ body {
   position: absolute;
   top: 1.0625rem;
   right: 1rem;
+  z-index: 2;
 }
 
 .card__favorites_selected {
@@ -1114,6 +1122,72 @@ body {
 
 /* ======== End of CARDS ======== */
 
+/* ========== SWIPER PAGINATION AND ARROWS ========== */
+
+.card__swiper-pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: -1.5625rem;
+  margin-bottom: 1.5625rem;
+  gap: 5px;
+}
+
+.card__swiper-pagination .swiper-pagination-bullet {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  z-index: 2;
+}
+
+.card__swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.card__button-prev,
+.card__button-next {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 3;
+  opacity: 0.5;
+  width: 1.875rem;
+  height: 1.875rem;
+  border-radius: 50%;
+  position: absolute;
+  top: 45%;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.card__button-prev {
+  left: 10px;
+  background: url("../img/icons/arrov-prev.svg") center center no-repeat;
+  background-color: #FFFFFF;
+}
+
+.card__button-next {
+  right: 10px;
+  background: url("../img/icons/arrov-next.svg") center center no-repeat;
+  background-color: #FFFFFF;
+}
+
+.card__button-prev.swiper-button-disabled,
+.card__button-next.swiper-button-disabled {
+  opacity: 0;
+}
+
+/* ======== End of SWIPER PAGINATION AND ARROWS ======== */
+
 /* ========== BUTTON LOAD MORE ========== */
 
 .more-btn {
@@ -1133,7 +1207,7 @@ body {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
-  margin: 0 auto;
+  margin: 30px auto 0;
   -webkit-transition: background-color 0.27s ease 0s;
   -o-transition: background-color 0.27s ease 0s;
   transition: background-color 0.27s ease 0s;
@@ -2558,6 +2632,12 @@ body {
 }
 
 @media (any-hover: hover) {
+  .header__logo:hover {
+    -webkit-transform: translate(0, -2px);
+        -ms-transform: translate(0, -2px);
+            transform: translate(0, -2px);
+  }
+
   .header__user-button:hover {
     background-color: #A00000;
   }
@@ -2658,6 +2738,11 @@ body {
     letter-spacing: -0.25px;
   }
 
+  .card__button-prev:hover,
+  .card__button-next:hover {
+    opacity: 1;
+  }
+
   .more-btn:hover {
     background: #EEF2F6;
   }
@@ -2695,6 +2780,10 @@ body {
   .feedback-button-next:hover span::after {
     content: "";
     background-color: #FFFFFF;
+  }
+
+  .feedback-pagination .swiper-pagination-bullet:hover {
+    cursor: pointer;
   }
 
   .on-the-go__button img:hover {
